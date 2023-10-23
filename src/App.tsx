@@ -1,13 +1,16 @@
 import Alert from "./Component/Alert"
 import Button from "./Component/Button"
+import { useState } from "react"
 
 function App() {
+  const [showAlert,setShowAlert]=useState(false)
 
 
   return (
     <>
-   <Alert>hello world<span>preeti</span></Alert>
-   <Button onhandle={()=>console.log('clicked')} >Clicked here</Button>
+    {showAlert && <Alert onClose={()=>setShowAlert(false)}>Hello Preeti </Alert>}
+
+   <Button onhandle={()=>setShowAlert(true)} >Clicked here</Button>
     
     </>
   )
