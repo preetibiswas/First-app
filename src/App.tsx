@@ -1,12 +1,14 @@
-import Message from './Message'
-import './App.css'
+import Alert from "./Component/Alert"
+import Button from "./Component/Button"
 
 function App() {
- 
+
 
   return (
     <>
-      <Message/>
+   <Alert>hello world<span>preeti</span></Alert>
+   <Button onhandle={()=>console.log('clicked')} >Clicked here</Button>
+    
     </>
   )
 }
