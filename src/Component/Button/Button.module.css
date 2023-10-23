@@ -1,0 +1,19 @@
+.btn{
+    border: none;
+    width: 7rem;
+    height: 3rem;
+    border-radius: 2rem;
+    text-transform: capitalize;
+    text-wrap: nowrap;
+    
+}
+.btn:hover{
+    background: rgb(0,0, 20);
+}
+.btnPrimary{
+    background: dodgerblue;
+    color: #fff;
+}
+.btn-secondary{
+    background: blue;
+}
