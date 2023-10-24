@@ -5,6 +5,7 @@ import ListGroup from "./Component/ListGroup"
 import Like from "./Component/Button/Like/Like"
 import NavBar from "./Component/NavBar"
 import Cart from "./Component/Cart"
+import Form from "./Component/Form"
 
 function App() {
   const [showAlert,setShowAlert]=useState(false)
@@ -14,6 +15,24 @@ function App() {
 
   }
   const [cartItems,setCartItems] = useState(['Product1','Product2'])
+  const [game,setGame]=useState({
+    id:1,
+    player:{
+      name:'jhone',
+      age:20
+    }
+  })
+  const [pizza,setPizza]=useState({
+    name:'spicy Pepperoni',
+    toppings:['Mashroom','berry']
+  })
+  const handleChange=()=>{
+    setGame({...game,player:{...game.player,name:'Boby'}})
+    console.log('je')
+  }
+  const onHandleToppings=()=>{
+    setPizza({...pizza,toppings:[...pizza.toppings,'cherry','onion']})
+  }
 
 
   return (
@@ -24,7 +43,14 @@ function App() {
    <Like onClick={()=>console.log('clicked')}/>
    <NavBar CartItemCount={cartItems.length}/>
    <Cart cartItems={cartItems} onClear={()=>setCartItems([])}/>
-    
+   <button onClick={()=>handleChange()}>Change player Name</button>
+   <h3>{game.id} {game.player.name}</h3>
+     <div>
+      <p>Pizza : {pizza.name}</p>
+      <p>Toppings: {pizza.toppings.map((itm)=><li>{itm}</li>)}</p>
+      <button onClick={()=>onHandleToppings()}>add Toppoing</button>
+     </div>
+     <Form/>
     </>
   )
 }
